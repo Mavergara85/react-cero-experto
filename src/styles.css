@@ -1,0 +1,150 @@
+/* Estilo general para todos los elementos */
+* {
+  font-family: Helvetica, Arial, sans-serif; /* Tipografía limpia y moderna */
+  box-sizing: border-box; /* Incluye padding y border en el tamaño total de los elementos */
+  background-color: rgba(249, 249, 249, 0.511); /* Fondo gris claro, da una sensación suave */
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina padding por defecto */
+}
+
+/* Estilos para el cuerpo de la página */
+body {
+  padding: 60px 20px; /* Espaciado interior (padding) para que el contenido no pegue a los bordes */
+  background-color: #f2f2f2; /* Un tono más claro para mejorar el contraste con las cards */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinea a la izquierda */
+  gap: 1rem; /* Espacio entre input y botón */
+  max-width: 400px;
+  margin: 0 auto 2rem auto; /* Centrado horizontal, espacio abajo */
+  width: 100%;
+}
+
+
+/* Input de búsqueda */
+input {
+  background-color: rgba(129, 197, 186, 0.599); /* Fondo blanco para destacar */
+  border-radius: 8px; /* Bordes redondeados, más suaves */
+  border: 1px solid rgb(151, 142, 159); /* Borde violeta para dar color distintivo */
+  color: black;
+  font-size: 1.1rem; /* Tamaño de texto cómodo */
+  outline: none; /* Quita el borde azul al hacer clic */
+  padding: 0.6rem 1rem; /* Espaciado interno para mejor sensación táctil */
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(45, 33, 33, 0.716); /* Sombra sutil para levantar el input */
+  transition: all 0.3s ease-in-out; /* Transición suave en hover/focus */
+}
+
+/* Efecto al enfocar el input */
+input:focus {
+  border-color: #5e2e91;
+  box-shadow: 0 0 5px rgba(94, 46, 145, 0.3);
+  
+}
+
+/* Títulos secundarios */
+h2 {
+  font-size: 1.8rem;
+  color: #2f2929;
+  margin-bottom: 10px;
+}
+
+/* Títulos principales */
+h3 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #4a5f5f; /* Color violeta para hacerlo destacar */
+  text-align: center;
+}
+
+/* Contenedor de las tarjetas */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se acomoden en filas */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  gap: 20px; /* Espacio entre tarjetas */
+  padding: 20px;
+}
+
+/* Cada tarjeta individual */
+.card {
+  background-color: rgba(143, 235, 230, 0.738);
+  border-radius: 12px; /* Bordes más redondeados = más amigables */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra para levantar visualmente la tarjeta */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden; /* Oculta contenido que se sale de la tarjeta */
+  width: 260px; /* Tamaño fijo para mejor organización */
+  transition: transform 0.2s ease-in-out; /* Transición suave al hacer hover */
+}
+
+/* Efecto al pasar el mouse sobre la tarjeta */
+.card:hover {
+  transform: translateY(-5px); /* Mueve la tarjeta hacia arriba levemente */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más intensa */
+}
+
+/* Título dentro de la tarjeta */
+.card p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333333b4;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Imagen del GIF */
+.card img {
+  width: 100%;
+  object-fit: cover; /* Asegura que la imagen cubra su contenedor */
+  border-bottom: 1px solid #eee; /* Línea divisoria entre imagen y texto */
+}
+
+.boton-animado {
+  position: relative;
+  padding: 10px 25px;
+  background: #111;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+
+.boton-animado::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 180deg at center, #ff6ec4, #7873f5, #4ADEDE, #ff6ec4);
+  animation: girarBorde 4s linear infinite;
+  z-index: -1;
+}
+
+.boton-animado::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background: #111;
+  border-radius: 6px;
+  z-index: -1;
+}
+
+@keyframes girarBorde {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
